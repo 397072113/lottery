@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+    PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+    "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+    <!--<classPathEntry location="/Program Files/IBM/SQLLIB/java/db2java.zip" />-->
+
+    <context id="Mybatis3Context" targetRuntime="MyBatis3">
+        <property name="javaFileEncoding" value="UTF-8"/>
+        <jdbcConnection driverClass="oracle.jdbc.OracleDriver"
+                        connectionURL="jdbc:oracle:thin:@172.16.22.36:1521:cc"
+                        userId="drmdms1"
+                        password="smart">
+        </jdbcConnection>
+
+        <javaTypeResolver>
+            <property name="forceBigDecimals" value="false"/>
+        </javaTypeResolver>
+
+        <javaModelGenerator targetPackage="com.luwei6.lottery.model" targetProject="D:/workspace/personalWorkSpace/lottery/src/main/java">
+            <!--<property name="enableSubPackages" value="true"/>-->
+            <property name="trimStrings" value="true"/>
+        </javaModelGenerator>
+
+        <sqlMapGenerator targetPackage="mapperxml" targetProject="D:/workspace/personalWorkSpace/lottery/src/main/resources">
+            <!--<property name="enableSubPackages" value="true"/>-->
+        </sqlMapGenerator>
+
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.luwei6.lottery.dao" targetProject="D:/workspace/personalWorkSpace/lottery/src/main/java">
+            <!--<property name="enableSubPackages" value="true"/>-->
+        </javaClientGenerator>
+
+        <table tableName="LOTTERY_UNION_LOTTO" domainObjectName="LotteryUnionLottoDto" enableCountByExample="false"
+               enableDeleteByExample="false" enableUpdateByExample="false" enableSelectByExample="false">
+    </table>
+
+    </context>
+</generatorConfiguration>
