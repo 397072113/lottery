@@ -50,9 +50,13 @@ public class LotteryUnionLottoService {
      * @throws Exception
      */
     public LotteryUnionLottoDto generateUnionLotto() throws Exception {
-        Map<String, Object> lotteryConfigMap = redisCacheServices.getLotteryConfig("lotteryConfig1");
-        Integer nextLotteryPeriod = (Integer)lotteryConfigMap.get("lotteryPeriod") + 1 ;
-        Date lotteryDate = DateUtilBase.string2Date((String)lotteryConfigMap.get("lotteryDate"),DateUtilBase.DATE_FORMAT_2);
+//        Map<String, Object> lotteryConfigMap = redisCacheServices.getLotteryConfig("lotteryConfig1");
+//        Integer nextLotteryPeriod = (Integer)lotteryConfigMap.get("lotteryPeriod") + 1 ;
+//        Date lotteryDate = DateUtilBase.string2Date((String)lotteryConfigMap.get("lotteryDate"),DateUtilBase.DATE_FORMAT_2);
+
+//        Map<String, Object> lotteryConfigMap = redisCacheServices.getLotteryConfig("lotteryConfig1");
+        Integer nextLotteryPeriod = 123124 ;
+        Date lotteryDate = DateUtilBase.string2Date("20191031");
         int week = DateUtilBase.getWeekOfDate(lotteryDate);
         Date nextLotteryDate = null;
         switch (week) {
