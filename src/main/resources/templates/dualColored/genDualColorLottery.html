@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>第一个</title>
+	<script src="https://code.jquery.com/jquery-3.4.1.js"
+			integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+			crossorigin="anonymous"></script>
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" type="text/css" href="../css/bootstrap.css">
+	<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.2/html5shiv.min.js"></script>
+	<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+	<style type="text/css">
+		.winNumber {
+			background: red;
+		}
+	</style>
+</head>
+<body>
+	<button type="button" id="genDualColorBtn" class="btn btn-default">生成双色球</button>
+	<h1 class="text-center">Hello World</h1>
+	<div class="panel panel-default">
+		<!-- Default panel contents -->
+		<div class="panel-heading">彩票列表</div>
+		<table id= "dualColorTable" class="table table-bordered table-hover">
+
+		</table>
+
+	</div>
+	
+
+	<!-- jQuery -->
+
+	<script src="../js/bootstrap.min.js" type="text/javascript" charset="utf-8" async defer></script>
+	<script src="../js/dist/bootstrap-table.min.js" type="text/javascript" charset="utf-8" async defer></script>
+	<script src="../js/dist/bootstrap-table-locale-all.min.js" type="text/javascript" charset="utf-8" async defer></script>
+
+	<script type="text/javascript" charset="utf-8" async defer>
+
+		function InitMainTable () {
+              //记录页面bootstrap-table全局变量$table，方便应用
+             var queryUrl = '/genLotteryUnionLottoList';
+             $('#dualColorTable').bootstrapTable({
+                 url: queryUrl,                      //请求后台的URL（*）
+                 method: 'GET',                      //请求方式（*）
+                 //toolbar: '#toolbar',              //工具按钮用哪个容器
+                 striped: true,                      //是否显示行间隔色
+                 cache: false,                       //是否使用缓存，默认为true，所以一般情况下需要设置一下这个属性（*）
+                 pagination: true,                   //是否显示分页（*）
+                 sortable: true,                     //是否启用排序
+                 sortOrder: "asc",                   //排序方式
+                 sidePagination: "server",           //分页方式：client客户端分页，server服务端分页（*）
+                 pageNumber: 1,                      //初始化加载第一页，默认第一页,并记录
+                 pageSize: 20,                     //每页的记录行数（*）
+                 pageList: [1, 10, 20, 30],        //可供选择的每页的行数（*）
+                 search: false,                      //是否显示表格搜索
+                 strictSearch: true,
+                 showColumns: true,                  //是否显示所有的列（选择显示的列）
+                 showRefresh: true,                  //是否显示刷新按钮
+                 minimumCountColumns: 2,             //最少允许的列数
+                 clickToSelect: true,                //是否启用点击选中行
+                 //height: 500,                      //行高，如果没有设置height属性，表格自动根据记录条数觉得表格高度
+                 uniqueId: "ID",                     //每一行的唯一标识，一般为主键列
+                 showToggle: true,                   //是否显示详细视图和列表视图的切换按钮
+                 cardView: false,                    //是否显示详细视图
+                 detailView: false,                  //是否显示父子表
+                 //得到查询的参数
+                 columns: [ {
+                     field: 'luckyNumberId',
+                     title: '序号',
+                     sortable: true
+                 }, {
+                     field: 'lotteryDate',
+                     title: '日期',
+                     sortable: true,
+                     // formatter: dateFormatter
+                 }, {
+                     field: 'redNumber1',
+                     title: '红1',
+                     sortable: true,
+					 formatter:function(value, row, index){
+						 return index+1;
+					 },
+					 cellStyle:function(value,row,index) {
+							 if (row.redNumber1Status == null)
+							 {
+								 return {css:{"background": "red"}};
+							 }
+							 return {css:{"background": "green"}};;
+					 }
+                 }, {
+                     field: 'redNumber2',
+                     title: '红2',
+                     sortable: true
+                 }, {
+                     field: 'redNumber3',
+                     title: '红3',
+                     sortable: true
+                 }, {
+                     field: 'redNumber4',
+                     title: '红4',
+                     sortable: true
+                 }, {
+                     field: 'redNumber5',
+                     title: '红5',
+                     sortable: true
+                 },  {
+					 field: 'redNumber6',
+					 title: '红6',
+					 sortable: true
+				 }, {
+                     field: 'blueNumber',
+                     title: '蓝色',
+                     sortable: true
+                 } ],
+                 onLoadSuccess: function () {
+                 	
+                 },
+                 onLoadError: function () {
+                     showTips("数据加载失败！");
+                 },
+                 onDblClickRow: function (row, $element) {
+                     var id = row.ID;
+                     // EditViewById(id, 'view');
+                 }
+             });
+         };
+
+		$('#genDualColorBtn').click(function() {
+			InitMainTable();
+		});
+
+
+	</script>
+</body>
+</html>
