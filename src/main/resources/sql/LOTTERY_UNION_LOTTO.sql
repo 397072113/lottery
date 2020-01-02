@@ -188,3 +188,32 @@ maxvalue 9999999999
 start with 7871
 increment by 1
 cache 20;
+
+
+--------------彩票周期
+create table LOTTERY_CYCLE  (
+   LOTTERY_CYCLE_TYPE_ID NUMBER(6)                       not null,
+   CYCLE_CODE           VARCHAR2(30)                    not null,
+   CYCLE_BEGIN_DATE     DATE                            not null,
+   CYCLE_END_DATE       DATE                            not null,
+   CUR_NUMBER           NUMBER(12)                     default 1,
+   STATE                CHAR(1)                         not null,
+   TOTAL_COUNT          NUMBER(12),
+   WIN_COUNT            NUMBER(12),
+   PRESS_COUNT          NUMBER(12),
+   PRESS_WIN_COUNT      NUMBER(12),
+   constraint PK_LOTTERY_CYCLE primary key (CYCLE_CODE)
+         using index tablespace IDX_CC
+)
+tablespace TAB_CC;
+comment on table LOTTERY_CYCLE is '彩票周期';
+comment on column LOTTERY_CYCLE.LOTTERY_CYCLE_TYPE_ID is '彩票周期类型标识';
+comment on column LOTTERY_CYCLE.CYCLE_CODE is '周期编码';
+comment on column LOTTERY_CYCLE.CYCLE_BEGIN_DATE is '周期起始日';
+comment on column LOTTERY_CYCLE.CYCLE_END_DATE is '周期终止日';
+comment on column LOTTERY_CYCLE.CUR_NUMBER is '当前号码';
+comment on column LOTTERY_CYCLE.STATE is 'CYCLE_STATE,''A''－''未摇号''、''B''－''摇号中'' 、''C''－''摇号完成'' ';
+comment on column LOTTERY_CYCLE.TOTAL_COUNT is 'TOTAL_COUNT';
+comment on column LOTTERY_CYCLE.WIN_COUNT is 'WIN_COUNT';
+comment on column LOTTERY_CYCLE.PRESS_COUNT is 'PRESS_COUNT';
+comment on column LOTTERY_CYCLE.PRESS_WIN_COUNT is 'PRESS_WIN_COUNT';

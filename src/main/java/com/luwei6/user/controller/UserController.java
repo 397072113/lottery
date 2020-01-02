@@ -25,4 +25,9 @@ public class UserController {
     public String genDualColorLottery() throws Exception {
         return "/dualColored/genDualColorLottery";
     }
+
+    @RequestMapping("dualColored/queryLottery")
+    public String queryLottery() throws Exception {
+        return "/dualColored/queryLottery";
+    }
 }

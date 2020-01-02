@@ -18,20 +18,20 @@
             <property name="forceBigDecimals" value="false"/>
         </javaTypeResolver>
 
-        <javaModelGenerator targetPackage="com.luwei6.lottery.model" targetProject="D:/workspace/personalWorkSpace/lottery/src/main/java">
+        <javaModelGenerator targetPackage="com.luwei6.lottery.model" targetProject="E:/workspaceForStudy/lottery/src/main/java">
             <!--<property name="enableSubPackages" value="true"/>-->
             <property name="trimStrings" value="true"/>
         </javaModelGenerator>
 
-        <sqlMapGenerator targetPackage="mapperxml" targetProject="D:/workspace/personalWorkSpace/lottery/src/main/resources">
+        <sqlMapGenerator targetPackage="mapperxml" targetProject="E:/workspaceForStudy/lottery/src/main/resources">
             <!--<property name="enableSubPackages" value="true"/>-->
         </sqlMapGenerator>
 
-        <javaClientGenerator type="XMLMAPPER" targetPackage="com.luwei6.lottery.dao" targetProject="D:/workspace/personalWorkSpace/lottery/src/main/java">
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.luwei6.lottery.dao" targetProject="E:/workspaceForStudy/lottery/src/main/java">
             <!--<property name="enableSubPackages" value="true"/>-->
         </javaClientGenerator>
 
-        <table tableName="LOTTERY_UNION_LOTTO" domainObjectName="LotteryUnionLottoDto" enableCountByExample="false"
+        <table tableName="LOTTERY_CYCLE" domainObjectName="LotteryCycleDto" enableCountByExample="false"
                enableDeleteByExample="false" enableUpdateByExample="false" enableSelectByExample="false">
     </table>
 
